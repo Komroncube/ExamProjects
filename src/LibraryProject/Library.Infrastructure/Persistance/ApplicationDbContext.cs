@@ -1,4 +1,4 @@
-﻿using Library.Application.Abstrations;
+﻿using Library.Application.Abstractions;
 using Library.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;

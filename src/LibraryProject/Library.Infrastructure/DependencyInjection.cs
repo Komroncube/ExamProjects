@@ -1,4 +1,4 @@
-﻿using Library.Application.Abstrations;
+﻿using Library.Application.Abstractions;
 using Library.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
