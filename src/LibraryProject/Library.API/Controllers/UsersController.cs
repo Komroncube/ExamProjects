@@ -1,4 +1,3 @@
-using Library.Application.UseCases.Users.Commands.CreateStudent;
 using Library.Application.UseCases.Users.Commands.CreateUser;
 using Library.Application.UseCases.Users.Queries.GetAllUsers;
 using Library.Domain.Entities;
@@ -36,10 +35,5 @@ public class UsersController : ControllerBase
         return Ok(result);
     }
 
-    [HttpPost]
-    public async ValueTask<IActionResult> CreateStudent(CreateStudentCommand command)
-    {
-        bool result = await _mediator.Send(command);
-        return Ok(result);
-    }
+
 }
