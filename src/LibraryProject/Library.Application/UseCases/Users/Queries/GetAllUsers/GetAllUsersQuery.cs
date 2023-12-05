@@ -1,4 +1,4 @@
-﻿using Library.Application.Messaging.Queries;
+﻿using Library.Application.Abstractions.Messaging.Queries;
 using Library.Domain.Entities;
 
 namespace Library.Application.UseCases.Users.Queries.GetAllUsers;
