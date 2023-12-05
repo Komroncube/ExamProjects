@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Library.Application.Abstractions.Messaging.Queries;
-
-namespace Library.Application.UseCases.Users.Queries.GetUserById;
+﻿namespace Library.Application.UseCases.Users.Queries.GetUserById;
 public class GetUserByIdQueryHandler : IQueryHandler<GetUserByIdQuery, User>
 {
     private readonly IApplicationDbContext _applicationDbContext;
@@ -16,8 +9,8 @@ public class GetUserByIdQueryHandler : IQueryHandler<GetUserByIdQuery, User>
     }
     public async Task<User> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
     {
-        User? user = await _applicationDbContext.Users.FirstOrDefaultAsync(x=>x.Id== request.Id, cancellationToken);
-        if(user is null)
+        User? user = await _applicationDbContext.Users.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+        if (user is null)
         {
             throw new InvalidOperationException($"user with id={request.Id} not found");
         }

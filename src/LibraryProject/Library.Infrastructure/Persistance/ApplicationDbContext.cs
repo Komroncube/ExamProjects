@@ -21,6 +21,6 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
 
     async ValueTask<int> IApplicationDbContext.SaveChangesAsync(CancellationToken cancellationToken)
     {
-        return await  base.SaveChangesAsync(cancellationToken);
+        return await base.SaveChangesAsync(cancellationToken);
     }
 }

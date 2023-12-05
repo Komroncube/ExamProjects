@@ -1,7 +1,4 @@
-﻿using Library.Application.Abstractions;
-using Library.Application.Abstractions.Messaging.Queries;
-
-namespace Library.Application.UseCases.Users.Queries.GetAllUsers;
+﻿namespace Library.Application.UseCases.Users.Queries.GetAllUsers;
 public class GetAllUsersQueryHandler : IQueryHandler<GetAllUsersQuery, IEnumerable<User>>
 {
     private readonly IApplicationDbContext _applicationDbContext;

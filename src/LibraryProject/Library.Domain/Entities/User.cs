@@ -24,12 +24,12 @@ public class User : BaseEntity
     }
     public User()
     {
-        
+
     }
 
     public void SetRole(Role role)
     {
-        if(this.Role == role)
+        if (this.Role == role)
         {
             throw new InvalidOperationException("Role alread been set");
         }

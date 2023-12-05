@@ -1,18 +1,20 @@
 ﻿using AutoMapper;
 
-namespace Library.Application.UseCases.Users.Commands.CreateUser;
-public class CreateUserCommandHandler : ICommandHandler<CreateUserCommand, bool>
+namespace Library.Application.UseCases.Students.Commands.CreateStudent;
+public class CreateStudentCommandHandler : ICommandHandler<CreateStudentCommand, bool>
 {
     private readonly IApplicationDbContext _applicationDbContext;
     private readonly IMapper _mapper;
 
-    public CreateUserCommandHandler(IApplicationDbContext applicationDbContext, IMapper mapper)
+    public CreateStudentCommandHandler(IApplicationDbContext applicationDbContext, IMapper mapper)
     {
         _applicationDbContext = applicationDbContext;
         _mapper = mapper;
     }
 
-    public async Task<bool> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+
+
+    public async Task<bool> Handle(CreateStudentCommand request, CancellationToken cancellationToken)
     {
         var checkUser = await _applicationDbContext.Users.FirstOrDefaultAsync(x => x.UserName == request.UserName, cancellationToken);
         if (checkUser is null)

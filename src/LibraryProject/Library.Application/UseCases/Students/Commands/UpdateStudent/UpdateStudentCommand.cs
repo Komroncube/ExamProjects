@@ -1,0 +1,13 @@
+﻿namespace Library.Application.UseCases.Students.Commands.UpdateStudent;
+public class UpdateStudentCommand : ICommand<bool>
+{
+
+    //username bo'yicha update bo'ladi
+    public string UserName { get; set; }
+
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Email { get; set; }
+    public string Password { get; set; }
+    public string Phone { get; set; }
+}
