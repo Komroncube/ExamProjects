@@ -2,11 +2,11 @@
 using Library.Application.Abstractions.Messaging.Queries;
 
 namespace Library.Application.UseCases.Users.Queries.GetAllUsers;
-public class GetAllUserQueryHandler : IQueryHandler<GetAllUsersQuery, IEnumerable<User>>
+public class GetAllUsersQueryHandler : IQueryHandler<GetAllUsersQuery, IEnumerable<User>>
 {
     private readonly IApplicationDbContext _applicationDbContext;
 
-    public GetAllUserQueryHandler(IApplicationDbContext applicationDbContext)
+    public GetAllUsersQueryHandler(IApplicationDbContext applicationDbContext)
     {
         _applicationDbContext = applicationDbContext;
     }
