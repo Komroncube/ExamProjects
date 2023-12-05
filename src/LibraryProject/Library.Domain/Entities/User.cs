@@ -22,6 +22,11 @@ public class User : BaseEntity
         Password = password;
         Phone = phone;
     }
+    public User()
+    {
+        
+    }
+
     public void SetRole(Role role)
     {
         if(this.Role == role)

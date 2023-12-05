@@ -8,6 +8,7 @@ public static class DependecyInjection
     public static IServiceCollection AddApplicationLayer(this IServiceCollection services)
     {
         services.AddMediatR(Assembly.GetExecutingAssembly());
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
         return services;
     }
 }
