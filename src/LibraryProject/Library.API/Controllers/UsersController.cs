@@ -1,4 +1,5 @@
 using Library.Application.UseCases.Users.Commands.CreateUser;
+using Library.Application.UseCases.Users.Commands.UpdateUser;
 using Library.Application.UseCases.Users.Queries.GetAllUsers;
 using Library.Domain.Entities;
 using MediatR;
@@ -17,9 +18,9 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet]
-    public async ValueTask<IActionResult> GetAllUsers(CancellationToken cancellationToken)
+    public async ValueTask<IActionResult> GetAllUsers()
     {
-        IEnumerable<User> users = await _mediator.Send(new GetAllUsersQuery(), cancellationToken);
+        IEnumerable<User> users = await _mediator.Send(new GetAllUsersQuery());
         return Ok(users);
     }
 
@@ -29,10 +30,16 @@ public class UsersController : ControllerBase
     /// <param name="command"></param>
     /// <returns></returns>
     [HttpPost]
-    public async ValueTask<IActionResult> AddAdmin(CreateUserCommand command)
+    public async ValueTask<IActionResult> CreateUser(CreateUserCommand command)
     {
         bool result = await _mediator.Send(command);
         return Ok(result);
+    }
+    [HttpPut]
+    public async ValueTask<IActionResult> UpdateUser(UpdateUserCommand updateUserCommand)
+    {
+        User user = await _mediator.Send(updateUserCommand);
+        return Ok(user);
     }
 
 
