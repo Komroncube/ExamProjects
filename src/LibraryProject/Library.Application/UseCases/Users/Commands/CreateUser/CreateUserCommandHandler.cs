@@ -15,7 +15,7 @@ public class CreateUserCommandHandler : ICommandHandler<CreateUserCommand, bool>
     public async Task<bool> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
         var checkUser = await _applicationDbContext.Users.FirstOrDefaultAsync(x => x.UserName == request.UserName, cancellationToken);
-        if (checkUser is null)
+        if (checkUser is not null)
         {
             throw new InvalidOperationException("Username already exits");
         }
