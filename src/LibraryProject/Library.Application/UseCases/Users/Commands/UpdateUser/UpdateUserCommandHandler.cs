@@ -1,11 +1,4 @@
-﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Library.Application.UseCases.Users.Commands.UpdateUser;
+﻿namespace Library.Application.UseCases.Users.Commands.UpdateUser;
 public class UpdateUserCommandHandler : ICommandHandler<UpdateUserCommand, User>
 {
     private readonly IApplicationDbContext _applicationDbContext;
@@ -19,14 +12,19 @@ public class UpdateUserCommandHandler : ICommandHandler<UpdateUserCommand, User>
 
     public async Task<User> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
     {
-        User? user = await _applicationDbContext.Users.FirstOrDefaultAsync(x=>x.UserName == request.UserName, cancellationToken);
-        if(user is null)
+        User? user = await _applicationDbContext.Users.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+        if (user is null)
         {
             throw new InvalidOperationException("User not found");
+        }
+        User? checkUsername = await _applicationDbContext.Users.FirstOrDefaultAsync(x => x.UserName == request.UserName, cancellationToken);
+        if (checkUsername is not null)
+        {
+            throw new Exception("Username already exists");
         }
         _mapper.Map(request, user);
         user.UpdateEntity();
         int result = await _applicationDbContext.SaveChangesAsync(cancellationToken);
-        return result > 0 ? user : throw new Exception();    
+        return result > 0 ? user : throw new Exception();
     }
 }
