@@ -12,16 +12,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddStackExchangeRedisCache(options =>
-{
-    options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions()
-    {
 
-    }
-})
 builder.Services.AddSingleton<JwtTokenHandler>();
 builder.Services.AddCustomJwtLayer();
-builder.Services.AddApplicationLayer();
+builder.Services.AddApplicationLayer(builder.Configuration);
 builder.Services.AddInfrastructureLayer();
 var app = builder.Build();
 
