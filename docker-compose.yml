@@ -5,7 +5,7 @@ services:
   dbmicroservice:
     container_name: dbmicroservices-container
     image:  mcr.microsoft.com/mssql/server:2022-latest
-    restart: always
+    # restart: always
     volumes:
       - ./databases/mssqldb:/var/opt/mssql/data
     environment:
@@ -18,7 +18,7 @@ services:
   redis:
     container_name: redis-container
     image: redis:latest
-    restart: always
+    # restart: always
     ports:
       - 6379:6379
     networks:
@@ -32,11 +32,22 @@ services:
       dockerfile: src/LibraryProject/Library.API/Dockerfile
     restart: always
     environment:
-    - DB_HOST=dbmicroservice
-    - DB_NAME=librarydb
-    - SA_PASSWORD=Exam!1234#
+      - DB_HOST=dbmicroservice
+      - DB_NAME=librarydb
+      - SA_PASSWORD=Exam!1234#
+      - REDIS_HOST=redis,6379
     networks:
       - backend
+    ports:
+      - 8081:80
+  redis_insight:
+    image: redislabs/redisinsight:latest
+    container_name: redis_insight
+   # restart: always
+    ports:
+      - 8001:8001
+    volumes:
+      - ./databases/redis_insight_volume_data:/db
 # volumes:
 #   ./databases:    
     
