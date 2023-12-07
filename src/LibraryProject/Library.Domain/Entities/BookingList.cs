@@ -1,6 +1,7 @@
 ﻿using Library.Domain.Enums;
 
 namespace Library.Domain.Entities;
+//hozircha kerak emas
 public class BookingList : BaseEntity
 {
     public int BookId { get; private set; }

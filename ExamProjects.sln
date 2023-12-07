@@ -28,9 +28,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGatewayProject", "ApiGatewayProject", "{4340A914-9549-4048-8351-039714CE48D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "src\ApiGatewayProject\ApiGateway\ApiGateway.csproj", "{178BD218-C38C-47A5-A985-FE7A436F1808}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "src\ApiGatewayProject\ApiGateway\ApiGateway.csproj", "{178BD218-C38C-47A5-A985-FE7A436F1808}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A97804B3-9AD2-432B-AEBB-8E6051C01D29}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JWTLayer", "JWTLayer", "{D3D827AC-4FF0-4A3B-874B-7734E756F309}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtTokenProvider", "src\JWTLayer\JwtTokenProvider\JwtTokenProvider.csproj", "{E2059478-3CE6-4986-A21F-210672141302}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +66,10 @@ Global
 		{A97804B3-9AD2-432B-AEBB-8E6051C01D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A97804B3-9AD2-432B-AEBB-8E6051C01D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A97804B3-9AD2-432B-AEBB-8E6051C01D29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2059478-3CE6-4986-A21F-210672141302}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2059478-3CE6-4986-A21F-210672141302}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2059478-3CE6-4986-A21F-210672141302}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2059478-3CE6-4986-A21F-210672141302}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +85,8 @@ Global
 		{CDC401D2-5814-4A87-86E1-C5A2DE21B94E} = {A6C6C63F-58C2-4E64-A177-C15434EE5F55}
 		{4340A914-9549-4048-8351-039714CE48D1} = {279CA6F0-CABF-4EE3-9B77-A702FE8D630F}
 		{178BD218-C38C-47A5-A985-FE7A436F1808} = {4340A914-9549-4048-8351-039714CE48D1}
+		{D3D827AC-4FF0-4A3B-874B-7734E756F309} = {279CA6F0-CABF-4EE3-9B77-A702FE8D630F}
+		{E2059478-3CE6-4986-A21F-210672141302} = {D3D827AC-4FF0-4A3B-874B-7734E756F309}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {168AB114-E47E-4A78-9F68-E132A8AAB80D}

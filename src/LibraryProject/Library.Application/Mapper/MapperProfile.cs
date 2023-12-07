@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using Library.Application.UseCases.Books.Commands.CreateBook;
 using Library.Application.UseCases.Students.Commands.CreateStudent;
 using Library.Application.UseCases.Students.Commands.UpdateStudent;
 using Library.Application.UseCases.Users.Commands.CreateUser;
@@ -16,5 +16,8 @@ public class MapperProfile : Profile
 
         CreateMap<User, CreateStudentCommand>().ReverseMap();
         CreateMap<User, UpdateStudentCommand>().ReverseMap();
+
+        CreateMap<Book, CreateBookCommand>().ReverseMap();
+
     }
 }

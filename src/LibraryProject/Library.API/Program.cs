@@ -1,3 +1,4 @@
+using JwtTokenProvider;
 using Library.Application;
 using Library.Infrastructure;
 
@@ -10,6 +11,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions()
+    {
+
+    }
+})
+builder.Services.AddSingleton<JwtTokenHandler>();
+builder.Services.AddCustomJwtLayer();
 builder.Services.AddApplicationLayer();
 builder.Services.AddInfrastructureLayer();
 var app = builder.Build();

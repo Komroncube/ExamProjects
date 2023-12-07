@@ -38,7 +38,7 @@ public class UsersController : ControllerBase
     /// <param name="command"></param>
     /// <returns></returns>
     [HttpPost]
-    public async ValueTask<IActionResult> CreateUser(CreateUserCommand command)
+    public async ValueTask<IActionResult> CreateUser([FromForm]CreateUserCommand command)
     {
         bool result = await _mediator.Send(command);
         return Ok(result);

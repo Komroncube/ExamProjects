@@ -5,6 +5,9 @@ services:
   dbmicroservice:
     container_name: dbmicroservices-container
     image:  mcr.microsoft.com/mssql/server:2022-latest
+    restart: always
+    volumes:
+      - ./databases/mssqldb:/var/opt/mssql/data
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Exam!1234#
@@ -12,14 +15,28 @@ services:
       - 1433:1433 
     networks:
       - backend
+  redis:
+    container_name: redis-container
+    image: redis:latest
+    restart: always
+    ports:
+      - 6379:6379
+    networks:
+      - backend
+    volumes:
+      - ./databases/redis_volume_data:/data
   library.api:
     image: ${DOCKER_REGISTRY-}libraryapi
     build:
       context: .
       dockerfile: src/LibraryProject/Library.API/Dockerfile
+    restart: always
     environment:
     - DB_HOST=dbmicroservice
     - DB_NAME=librarydb
     - SA_PASSWORD=Exam!1234#
     networks:
       - backend
+# volumes:
+#   ./databases:    
+    

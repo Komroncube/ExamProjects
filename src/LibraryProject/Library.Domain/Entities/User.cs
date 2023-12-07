@@ -11,6 +11,8 @@ public class User : BaseEntity
     public string Phone { get; private set; }
     public Role Role { get; private set; } = Role.Student;
 
+    public ICollection<BookingList> Bookings { get; private set; }
+    public ICollection<Checkout> Checkouts { get; private set; }
     public void SetPassword(string password) => Password = password;
 
     public User(string firstname, string lastname, string email, string username, string password, string phone)
