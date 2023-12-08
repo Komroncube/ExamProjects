@@ -8,7 +8,7 @@ public class CacheService : ICacheService
 
     public CacheService()
     {
-        string REDIS_HOST_NAME = Environment.GetEnvironmentVariable("REDIS_HOST_NAME") ?? "redis";
+        string REDIS_HOST_NAME = Environment.GetEnvironmentVariable("REDIS_HOST") ?? "redis";
         var redis = ConnectionMultiplexer.Connect($"{REDIS_HOST_NAME}:6379");
         _cacheDatabase = redis.GetDatabase();
     }
