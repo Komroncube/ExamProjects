@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-
-namespace Library.Application.UseCases.Students.Commands.CreateStudent;
+﻿namespace Library.Application.UseCases.Students.Commands.CreateStudent;
 public class CreateStudentCommandHandler : ICommandHandler<CreateStudentCommand, bool>
 {
     private readonly IApplicationDbContext _applicationDbContext;

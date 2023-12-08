@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-
-namespace Library.Application.UseCases.Students.Commands.UpdateStudent;
+﻿namespace Library.Application.UseCases.Students.Commands.UpdateStudent;
 public class UpdateStudentCommandHandler : ICommandHandler<UpdateStudentCommand, bool>
 {
     private readonly IApplicationDbContext _applicationDbContext;
@@ -15,7 +13,7 @@ public class UpdateStudentCommandHandler : ICommandHandler<UpdateStudentCommand,
 
     public async Task<bool> Handle(UpdateStudentCommand request, CancellationToken cancellationToken)
     {
-        var user = await _applicationDbContext.Users.FirstOrDefaultAsync(x => x.UserName == request.UserName && x.Role==Role.Student, cancellationToken);
+        var user = await _applicationDbContext.Users.FirstOrDefaultAsync(x => x.UserName == request.UserName && x.Role == Role.Student, cancellationToken);
         if (user is null)
         {
             throw new InvalidOperationException("Username not found exits");
