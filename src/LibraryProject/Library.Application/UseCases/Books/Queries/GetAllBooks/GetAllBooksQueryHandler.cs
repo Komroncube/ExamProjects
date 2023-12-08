@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Library.Application.UseCases.Books.Queries.GetAllBooks;
+﻿namespace Library.Application.UseCases.Books.Queries.GetAllBooks;
 public class GetAllBooksQueryHandler : IQueryHandler<GetAllBooksQuery, IEnumerable<Book>>
 {
     private readonly IApplicationDbContext _applicationDbContext;
@@ -19,7 +13,7 @@ public class GetAllBooksQueryHandler : IQueryHandler<GetAllBooksQuery, IEnumerab
         IEnumerable<Book> books = await _applicationDbContext.Books.ToListAsync(cancellationToken);
         if (books is null)
         {
-            return Enumerable.Empty<Book>();    
+            return Enumerable.Empty<Book>();
         }
         return books;
     }

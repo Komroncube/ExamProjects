@@ -1,6 +1,4 @@
-﻿using Library.Application.Abstractions;
-using Library.Infrastructure.Persistance;
-using Microsoft.EntityFrameworkCore;
+﻿using Library.Infrastructure.Persistance;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Library.Infrastructure;

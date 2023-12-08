@@ -16,6 +16,6 @@ public class CreateBookCommandHandler : ICommandHandler<CreateBookCommand, Book>
         await _applicationDbContext.Books.AddAsync(book, cancellationToken);
         await _applicationDbContext.SaveChangesAsync(cancellationToken);
         return book;
-        
+
     }
 }

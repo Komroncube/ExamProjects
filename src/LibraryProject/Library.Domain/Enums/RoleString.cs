@@ -1,13 +1,15 @@
 ﻿namespace Library.Domain.Enums;
 public static class RoleString
 {
-    public static string ADMIN = "ADMINISTRATOR";
-    public static string STUDENT = "STUDENT";
-    public static string LIBRARIAN = "LIBRARIAN";
+    public const string ADMIN = "ADMINISTRATOR";
+    public const string STUDENT = "STUDENT";
+    public const string LIBRARIAN = "LIBRARIAN";
 
 
 
-    public static string STUDENTROLE = STUDENT + ", " + LIBRARIAN + ", " + ADMIN;
-    public static string LIBRARIANROLE = LIBRARIAN + ", " + ADMIN;
-    public static string ADMINROLE = ADMIN;
+    public const string STUDENTROLE = STUDENT + ", " + LIBRARIAN + ", " + ADMIN;
+    public const string LIBRARIANROLE = LIBRARIAN + ", " + ADMIN;
+    public const string ADMINROLE = ADMIN;
+
+
 }

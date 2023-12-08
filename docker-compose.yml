@@ -30,7 +30,7 @@ services:
     build:
       context: .
       dockerfile: src/LibraryProject/Library.API/Dockerfile
-    restart: always
+    #restart: on-fault
     environment:
       - DB_HOST=dbmicroservice
       - DB_NAME=librarydb
@@ -42,7 +42,7 @@ services:
       - 8081:80
   redis_insight:
     image: redislabs/redisinsight:latest
-    container_name: redis_insight
+    container_name: redis-insight
    # restart: always
     ports:
       - 8001:8001
@@ -51,3 +51,13 @@ services:
 # volumes:
 #   ./databases:    
     
+  apigateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: src/ApiGatewayProject/ApiGateway/Dockerfile
+    ports:
+      - 8090:80
+    networks:
+      - backend
+

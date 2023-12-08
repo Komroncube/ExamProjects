@@ -14,12 +14,12 @@ public class JwtTokenHandler
 
     public AuthenticationResponse? GenerateToken(TokenRequest request)
     {
-        if (request == null || string.IsNullOrWhiteSpace(request.Username) || string.IsNullOrWhiteSpace(request.RoleName)) 
+        if (request == null || string.IsNullOrWhiteSpace(request.Username) || string.IsNullOrWhiteSpace(request.RoleName))
         {
             return null;
         }
 
-        var tokenExpiryTimeStamp = DateTime.UtcNow.AddMinutes(JWT_TOKEN_VALIDITY_MINS);
+        var tokenExpiryTimeStamp = DateTime.Now.AddMinutes(JWT_TOKEN_VALIDITY_MINS);
         var tokenKey = Encoding.ASCII.GetBytes(JWT_SECURITY_KEY);
         var claimsIdentity = new ClaimsIdentity(new List<Claim>
         {
@@ -35,7 +35,7 @@ public class JwtTokenHandler
             Subject = claimsIdentity,
             Expires = tokenExpiryTimeStamp,
             SigningCredentials = signingCredentials,
-            IssuedAt = DateTime.UtcNow
+            IssuedAt = DateTime.Now
         };
         var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
         var securityToken = jwtSecurityTokenHandler.CreateToken(securityTokenDescriptor);
@@ -44,7 +44,7 @@ public class JwtTokenHandler
         return new AuthenticationResponse
         {
             Username = request.Username,
-            ExpiresIn = (int)tokenExpiryTimeStamp.Subtract(DateTime.UtcNow).TotalSeconds,
+            ExpiresIn = (int)tokenExpiryTimeStamp.Subtract(DateTime.Now).TotalSeconds,
             Token = token
         };
     }

@@ -31,6 +31,7 @@ public class UserModelEntityConfiguration : IEntityTypeConfiguration<User>
 
         builder.HasData(
             new User(
+                1,
                 "Komil",
                 "Qodirov",
                 "komilqodir@gmail.com",
@@ -40,6 +41,7 @@ public class UserModelEntityConfiguration : IEntityTypeConfiguration<User>
                 Role.Admin
                 ),
             new User(
+                2,
                 "Asqar",
                 "Hikmatov",
                 "asqarhikmat@gmail.com",
@@ -49,6 +51,7 @@ public class UserModelEntityConfiguration : IEntityTypeConfiguration<User>
                 Role.Librarian
                 ),
             new User(
+                3,
                 "Temur",
                 "Torayev",
                 "temurtorayev@gmail.com",

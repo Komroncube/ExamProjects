@@ -7,13 +7,13 @@ public class CheckoutModelEntityConfiguration : IEntityTypeConfiguration<Checkou
 
         builder.HasOne(x => x.BookCopy)
             .WithMany(x => x.Checkouts)
-            .HasForeignKey(x => x.BookId)
-            .OnDelete(DeleteBehavior.SetNull);
+            .HasForeignKey(x => x.BookCopyId)
+            .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasOne(x => x.User)
             .WithMany(x => x.Checkouts)
             .HasForeignKey(x => x.UserId)
-            .OnDelete(DeleteBehavior.SetNull);
+            .OnDelete(DeleteBehavior.NoAction);
         builder.Property(x => x.IsReturned)
             .IsRequired();
 

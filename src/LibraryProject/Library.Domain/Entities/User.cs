@@ -15,7 +15,7 @@ public class User : BaseEntity
     public ICollection<Checkout> Checkouts { get; private set; }
     public void SetPassword(string password) => Password = password;
 
-    public User(string firstname, string lastname, string email, string username, string password, string phone)
+    public User(string firstname, string lastname, string email, string username, string password, string phone, Role? role)
     {
         FirstName = firstname;
         LastName = lastname;
@@ -23,6 +23,11 @@ public class User : BaseEntity
         UserName = username;
         Password = password;
         Phone = phone;
+        Role = role ?? Role.Student;
+    }
+    public User(int id, string firstname, string lastname, string email, string username, string password, string phone, Role? role): this(firstname, lastname, email, username, password, phone, role)
+    {
+        Id = id;
     }
     public User()
     {

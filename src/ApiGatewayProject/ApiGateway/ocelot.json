@@ -1,0 +1,56 @@
+{
+  "Routes": [
+    {
+
+      //login
+      "DownstreamPathTemplate": "/api/Login/Login",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "library.api",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/library/login",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      //check
+      "DownstreamPathTemplate": "/api/Login/CheckUser",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "library.api",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/library/check",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Users/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "library.api",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/library/users{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+    {
+    //get all users
+      "DownstreamPathTemplate": "/api/Users/",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "library.api",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/library/users",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+    }
+    
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:8087"
+  }
+}

@@ -1,8 +1,7 @@
 ﻿using Library.Application.Abstractions;
-using Library.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using System.Reflection;
 
 namespace Library.Infrastructure.Persistance;
 public class ApplicationDbContext : DbContext, IApplicationDbContext
@@ -16,6 +15,12 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
             if (!databaseCreator.HasTables()) databaseCreator.CreateTables();
         }
     }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+    }
+
 
     public DbSet<User> Users { get; set; }
     public DbSet<Book> Books { get; set; }

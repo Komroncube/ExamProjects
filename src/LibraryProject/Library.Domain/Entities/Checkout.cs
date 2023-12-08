@@ -4,7 +4,7 @@ namespace Library.Domain.Entities;
 public class Checkout : BaseEntity
 {
 
-    public int BookId { get; private set; }
+    public int BookCopyId { get; private set; }
     public BookCopy BookCopy { get; private set; }
 
     public int UserId { get; private set; }
@@ -27,7 +27,7 @@ public record TimeInterval
     }
     public TimeInterval()
     {
-        
+
     }
 }
 

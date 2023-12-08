@@ -1,4 +1,6 @@
 ﻿using Library.Application.UseCases.Login;
+using Library.Domain.Enums;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Library.API.Controllers;
 [Route("api/[controller]/[action]")]
@@ -17,7 +19,7 @@ public class LoginController : ControllerBase
         return Ok(response);
     }
     [HttpGet]
-    //[Authorize(Roles = RoleString.LIBRARIANROLE)]
+    [Authorize(Roles = RoleString.LIBRARIANROLE)]
     public IActionResult CheckUser()
     {
         return Ok("tekshirildi");
