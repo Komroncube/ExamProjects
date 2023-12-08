@@ -11,7 +11,7 @@ public class DeleteUserCommandHandler : ICommandHandler<DeleteUserCommand, bool>
     public async Task<bool> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
     {
         User? user = await _applicationDbContext.Users.FirstOrDefaultAsync(x => x.Id == request.Id);
-        if(user is null)
+        if (user is null)
         {
             throw new ArgumentException("User not found");
         }

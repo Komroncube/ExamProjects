@@ -15,7 +15,7 @@ public class GetAllUsersQueryHandler : IQueryHandler<GetAllUsersQuery, IEnumerab
     public async Task<IEnumerable<User>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
     {
         var users = await _cacheService.GetDataAsync<IEnumerable<User>>(CacheKeys.USERSKEY); //await _applicationDbContext.Users.ToListAsync();
-        if(users is null)
+        if (users is null)
         {
             users = await _applicationDbContext.Users.ToListAsync(cancellationToken);
             await _cacheService.SetDataAsync(CacheKeys.USERSKEY, users, TimeSpan.FromMinutes(10));

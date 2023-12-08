@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-
-namespace Library.Application.UseCases.Users.Commands.CreateUser;
+﻿namespace Library.Application.UseCases.Users.Commands.CreateUser;
 public class CreateUserCommandHandler : ICommandHandler<CreateUserCommand, bool>
 {
     private readonly IApplicationDbContext _applicationDbContext;
