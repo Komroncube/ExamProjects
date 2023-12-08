@@ -2,8 +2,6 @@
 using Library.Application.UseCases.Students.Commands.UpdateStudent;
 using Library.Application.UseCases.Users.Queries.GetUserById;
 using Library.Domain.Entities;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Library.API.Controllers;
 [Route("api/[controller]/[action]")]

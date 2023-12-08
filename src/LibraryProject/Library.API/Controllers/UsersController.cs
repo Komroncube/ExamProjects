@@ -4,8 +4,6 @@ using Library.Application.UseCases.Users.Commands.UpdateUser;
 using Library.Application.UseCases.Users.Queries.GetAllUsers;
 using Library.Application.UseCases.Users.Queries.GetUserById;
 using Library.Domain.Entities;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Library.API.Controllers;
 [ApiController]
@@ -38,7 +36,7 @@ public class UsersController : ControllerBase
     /// <param name="command"></param>
     /// <returns></returns>
     [HttpPost]
-    public async ValueTask<IActionResult> CreateUser([FromForm]CreateUserCommand command)
+    public async ValueTask<IActionResult> CreateUser([FromForm] CreateUserCommand command)
     {
         bool result = await _mediator.Send(command);
         return Ok(result);
@@ -55,7 +53,7 @@ public class UsersController : ControllerBase
         bool isDeleted = await _mediator.Send(deleteUserCommand);
         return Ok(isDeleted);
     }
-    
+
 
 
 }

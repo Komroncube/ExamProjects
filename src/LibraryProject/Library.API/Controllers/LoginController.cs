@@ -1,10 +1,4 @@
-﻿using AutoMapper;
-using JwtTokenProvider;
-using Library.Application.UseCases.Login;
-using Library.Domain.Enums;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Library.Application.UseCases.Login;
 
 namespace Library.API.Controllers;
 [Route("api/[controller]/[action]")]
