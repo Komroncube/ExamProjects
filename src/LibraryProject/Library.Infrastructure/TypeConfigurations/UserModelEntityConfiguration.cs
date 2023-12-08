@@ -28,5 +28,35 @@ public class UserModelEntityConfiguration : IEntityTypeConfiguration<User>
             .IsRequired();
         builder.Property(x => x.UpdatedDate)
             .IsRequired(false);
+
+        builder.HasData(
+            new User(
+                "Komil",
+                "Qodirov",
+                "komilqodir@gmail.com",
+                "admin1",
+                "admin123",
+                "998998829988",
+                Role.Admin
+                ),
+            new User(
+                "Asqar",
+                "Hikmatov",
+                "asqarhikmat@gmail.com",
+                "library1",
+                "library123",
+                "848884744728",
+                Role.Librarian
+                ),
+            new User(
+                "Temur",
+                "Torayev",
+                "temurtorayev@gmail.com",
+                "student1",
+                "student123",
+                "39399292019",
+                Role.Student
+                ));
+
     }
 }
